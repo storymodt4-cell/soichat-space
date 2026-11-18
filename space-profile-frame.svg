@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360" xmlns:c2pa="http://c2pa.org/manifest">
+  <title>Starry Orbit profile frame - photo window: circle r=95 centred at 180,180</title>
+  <style>
+    .orbit{transform-box:view-box;transform-origin:180px 180px;animation:spin 56s linear infinite}
+    .tw{animation:tw 3.4s ease-in-out infinite}
+    .t2{animation-duration:4.6s;animation-delay:-1.3s}
+    .t3{animation-duration:5.8s;animation-delay:-2.9s}
+    .sp{transform-box:fill-box;transform-origin:center;animation:pulse 4.2s ease-in-out infinite}
+    .s2{animation-delay:-1.1s}.s3{animation-delay:-2.2s}.s4{animation-delay:-3.1s}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
+    @keyframes pulse{0%,100%{transform:scale(.82);opacity:.8}50%{transform:scale(1.12);opacity:1}}
+    @media (prefers-reduced-motion:reduce){.orbit,.tw,.sp{animation:none}}
+  </style>
+  <defs>
+    <radialGradient id="halo" gradientUnits="userSpaceOnUse" cx="180" cy="180" r="180">
+      <stop offset=".50" stop-color="#9B7CFF" stop-opacity=".70"/>
+      <stop offset=".62" stop-color="#5B6CFF" stop-opacity=".38"/>
+      <stop offset=".78" stop-color="#1CA7D8" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#1CA7D8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" gradientUnits="userSpaceOnUse" x1="60" y1="60" x2="300" y2="300">
+      <stop offset="0" stop-color="#8FD3FF"/>
+      <stop offset=".5" stop-color="#9A86FF"/>
+      <stop offset="1" stop-color="#FF8FD0"/>
+    </linearGradient>
+    <linearGradient id="tail" gradientUnits="userSpaceOnUse" x1="72" y1="76" x2="180" y2="32">
+      <stop offset="0" stop-color="#BFE6FF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#E4F5FF" stop-opacity=".95"/>
+    </linearGradient>
+    <radialGradient id="moon" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".55" stop-color="#C9D8FF"/>
+      <stop offset="1" stop-color="#6F7FC8"/>
+    </radialGradient>
+    <radialGradient id="planet" cx=".35" cy=".3" r=".85">
+      <stop offset="0" stop-color="#FFE2B8"/>
+      <stop offset=".55" stop-color="#E5895C"/>
+      <stop offset="1" stop-color="#6E3A66"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <mask id="cres" maskUnits="userSpaceOnUse" x="270" y="48" width="44" height="44">
+      <rect x="270" y="48" width="44" height="44" fill="#fff"/>
+      <circle cx="296" cy="64" r="7.5" fill="#000"/>
+    </mask>
+    <path id="spark" d="M0,-1 Q.12,-.12 1,0 Q.12,.12 0,1 Q-.12,.12 -1,0 Q-.12,-.12 0,-1Z"/>
+  </defs>
+  <!-- halo / nebula glow (the photo covers r<95) -->
+  <circle cx="180" cy="180" r="180" fill="url(#halo)"/>
+  <!-- faint dust in the square corners -->
+  <g fill="#CFE0FF">
+    <circle class="tw" cx="347.8" cy="341.7" r="0.8" opacity="0.5"/>
+    <circle class="tw t2" cx="60.8" cy="11.2" r="0.7" opacity="0.3"/>
+    <circle class="tw t3" cx="353.2" cy="352.5" r="1.1" opacity="0.5"/>
+    <circle class="tw" cx="339.4" cy="300.9" r="0.9" opacity="0.6"/>
+    <circle class="tw t2" cx="6.2" cy="79" r="0.8" opacity="0.5"/>
+    <circle class="tw t3" cx="41.2" cy="26.8" r="0.7" opacity="0.4"/>
+    <circle class="tw" cx="343.9" cy="285.6" r="1.1" opacity="0.6"/>
+    <circle class="tw t2" cx="40.9" cy="350.3" r="1.1" opacity="0.4"/>
+    <circle class="tw t3" cx="74.4" cy="336.6" r="0.9" opacity="0.4"/>
+    <circle class="tw" cx="19.5" cy="341" r="0.7" opacity="0.4"/>
+    <circle class="tw t2" cx="11.8" cy="99.7" r="1.1" opacity="0.5"/>
+    <circle class="tw t3" cx="54.8" cy="18.2" r="1" opacity="0.6"/>
+    <circle class="tw" cx="12.2" cy="322.8" r="0.8" opacity="0.3"/>
+    <circle class="tw t2" cx="319.5" cy="309.1" r="0.9" opacity="0.3"/>
+    <circle class="tw t3" cx="351.7" cy="312.2" r="0.7" opacity="0.4"/>
+    <circle class="tw" cx="95" cy="9.9" r="1" opacity="0.4"/>
+  </g>
+  <!-- dark backing band keeps the ring readable on bright pages -->
+  <circle cx="180" cy="180" r="113" fill="none" stroke="#05071C" stroke-opacity=".82" stroke-width="30"/>
+  <circle cx="180" cy="180" r="100" fill="none" stroke="#8FD3FF" stroke-opacity=".85" stroke-width="1.2"/>
+  <circle cx="180" cy="180" r="112" fill="none" stroke="url(#ring)" stroke-width="3.2" filter="url(#glow)"/>
+  <!-- 120 fine ticks + 12 major ticks (star-chart dial) -->
+  <circle cx="180" cy="180" r="122" fill="none" stroke="#BFD0FF" stroke-opacity=".8" stroke-width="6" pathLength="120" stroke-dasharray=".28 .72"/>
+  <g stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-opacity=".95">
+    <line x1="297" y1="180" x2="309" y2="180"/>
+    <line x1="281.3" y1="238.5" x2="291.7" y2="244.5"/>
+    <line x1="238.5" y1="281.3" x2="244.5" y2="291.7"/>
+    <line x1="180" y1="297" x2="180" y2="309"/>
+    <line x1="121.5" y1="281.3" x2="115.5" y2="291.7"/>
+    <line x1="78.7" y1="238.5" x2="68.3" y2="244.5"/>
+    <line x1="63" y1="180" x2="51" y2="180"/>
+    <line x1="78.7" y1="121.5" x2="68.3" y2="115.5"/>
+    <line x1="121.5" y1="78.7" x2="115.5" y2="68.3"/>
+    <line x1="180" y1="63" x2="180" y2="51"/>
+    <line x1="238.5" y1="78.7" x2="244.5" y2="68.3"/>
+    <line x1="281.3" y1="121.5" x2="291.7" y2="115.5"/>
+  </g>
+  <circle cx="180" cy="180" r="133" fill="none" stroke="#6F80FF" stroke-opacity=".6" stroke-width="1"/>
+  <!-- orbiting moon + comet tail (slow spin, disabled under prefers-reduced-motion) -->
+  <g class="orbit">
+    <circle cx="180" cy="180" r="148" fill="none" stroke="#8FD3FF" stroke-opacity=".28" stroke-width="1" stroke-dasharray="2 6"/>
+    <path d="M75.3,75.3 A148,148 0 0 1 180,32" fill="none" stroke="url(#tail)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="180" cy="32" r="6.5" fill="url(#moon)" filter="url(#glow)"/>
+  </g>
+  <!-- constellation (south-west) -->
+  <polyline points="126.6,326.6 89.9,324.2 73,290.8 39.9,274.5 36.3,238.1" fill="none" stroke="#AFC4FF" stroke-opacity=".5" stroke-width=".9" stroke-dasharray="2 2"/>
+  <g fill="#FFFFFF" filter="url(#glow)">
+    <circle class="tw" cx="126.6" cy="326.6" r="2.2"/>
+    <circle class="tw t2" cx="89.9" cy="324.2" r="1.6"/>
+    <circle class="tw t3" cx="73" cy="290.8" r="2.2"/>
+    <circle class="tw" cx="39.9" cy="274.5" r="1.6"/>
+    <circle class="tw t2" cx="36.3" cy="238.1" r="2.2"/>
+  </g>
+  <!-- scattered stars -->
+  <g fill="#FFFFFF">
+    <circle class="tw" cx="111.9" cy="336.4" r="1.5" opacity="0.6"/>
+    <circle class="tw t2" cx="334.1" cy="162.5" r="1" opacity="0.6"/>
+    <circle class="tw t3" cx="303.3" cy="242.5" r="0.9" opacity="0.6"/>
+    <circle class="tw" cx="276.7" cy="80.6" r="0.7" opacity="0.8"/>
+    <circle class="tw t2" cx="138.9" cy="25.5" r="0.8" opacity="0.7"/>
+    <circle class="tw t3" cx="321.4" cy="197.1" r="0.8" opacity="0.8"/>
+    <circle class="tw" cx="47.5" cy="218.6" r="0.7" opacity="0.6"/>
+    <circle class="tw t2" cx="250.3" cy="51.5" r="1.5" opacity="0.8"/>
+    <circle class="tw t3" cx="267.9" cy="287.5" r="0.9" opacity="0.8"/>
+    <circle class="tw" cx="73.4" cy="67.7" r="1" opacity="0.8"/>
+    <circle class="tw t2" cx="241.9" cy="15.9" r="1" opacity="0.6"/>
+    <circle class="tw t3" cx="122" cy="47.1" r="1" opacity="0.9"/>
+    <circle class="tw" cx="37.6" cy="202.4" r="1.1" opacity="0.7"/>
+    <circle class="tw t2" cx="147.8" cy="39.5" r="0.8" opacity="1"/>
+    <circle class="tw t3" cx="158.9" cy="329.3" r="1.5" opacity="0.6"/>
+    <circle class="tw" cx="54.2" cy="69.8" r="1.1" opacity="0.9"/>
+    <circle class="tw t2" cx="296.8" cy="101.9" r="0.7" opacity="0.6"/>
+    <circle class="tw t3" cx="331.2" cy="111.8" r="1" opacity="0.6"/>
+    <circle class="tw" cx="326.1" cy="126.6" r="0.6" opacity="0.9"/>
+    <circle class="tw t2" cx="95.6" cy="61.8" r="0.8" opacity="0.9"/>
+    <circle class="tw t3" cx="150.2" cy="12.9" r="0.7" opacity="0.7"/>
+    <circle class="tw" cx="75.7" cy="51.3" r="1.5" opacity="0.8"/>
+    <circle class="tw t2" cx="219.5" cy="348.4" r="0.6" opacity="0.6"/>
+    <circle class="tw t3" cx="354.8" cy="158.5" r="0.9" opacity="1"/>
+    <circle class="tw" cx="15.9" cy="141.2" r="1.1" opacity="0.6"/>
+    <circle class="tw t2" cx="273.1" cy="61.2" r="0.9" opacity="0.9"/>
+    <circle class="tw t3" cx="314.2" cy="256.8" r="0.9" opacity="0.8"/>
+    <circle class="tw" cx="20.6" cy="127.9" r="0.7" opacity="0.5"/>
+    <circle class="tw t2" cx="230.7" cy="50" r="1.5" opacity="0.6"/>
+    <circle class="tw t3" cx="15" cy="162.8" r="0.6" opacity="0.8"/>
+    <circle class="tw" cx="268.2" cy="41" r="0.9" opacity="0.8"/>
+    <circle class="tw t2" cx="313.3" cy="135.9" r="0.7" opacity="0.6"/>
+    <circle class="tw t3" cx="208.2" cy="335.5" r="0.7" opacity="0.9"/>
+    <circle class="tw" cx="138.5" cy="340.9" r="1.1" opacity="1"/>
+    <circle class="tw t2" cx="49.9" cy="115.8" r="0.6" opacity="0.5"/>
+    <circle class="tw t3" cx="71" cy="95.2" r="1.5" opacity="1"/>
+    <circle class="tw" cx="35.4" cy="119.7" r="0.8" opacity="0.9"/>
+    <circle class="tw t2" cx="31" cy="143" r="0.8" opacity="0.7"/>
+    <circle class="tw t3" cx="347.6" cy="133.4" r="0.9" opacity="0.7"/>
+    <circle class="tw" cx="238.2" cy="330.9" r="0.9" opacity="0.5"/>
+    <circle class="tw t2" cx="306.8" cy="115.7" r="1" opacity="0.9"/>
+    <circle class="tw t3" cx="205.2" cy="44.4" r="0.7" opacity="0.7"/>
+    <circle class="tw" cx="230.3" cy="317.2" r="1.5" opacity="0.9"/>
+    <circle class="tw t2" cx="80.6" cy="307.6" r="0.8" opacity="0.6"/>
+  </g>
+  <!-- cardinal sparkles -->
+  <g fill="#FFFFFF" filter="url(#glow)">
+    <g transform="translate(180 16) scale(11)"><use href="#spark" class="sp "/></g>
+    <g transform="translate(344 180) scale(9)"><use href="#spark" class="sp s2"/></g>
+    <g transform="translate(180 344) scale(11)"><use href="#spark" class="sp s3"/></g>
+    <g transform="translate(16 180) scale(9)"><use href="#spark" class="sp s4"/></g>
+  </g>
+  <!-- crescent moon (north-east) -->
+  <circle cx="292" cy="68" r="9.5" fill="#FFE9B8" mask="url(#cres)" filter="url(#glow)"/>
+  <!-- ringed planet (south-east) -->
+  <g transform="translate(290.3 290.3) rotate(-22)">
+    <ellipse rx="17" ry="4.6" fill="none" stroke="#F6C98E" stroke-opacity=".9" stroke-width="1.6"/>
+    <circle r="9" fill="url(#planet)"/>
+    <path d="M-17,0 A17,4.6 0 0 0 17,0" fill="none" stroke="#F6C98E" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTphY2E4NWVkYy1kZDVlLTQ3ODQtYWQ3Mi00NDVhN2U4NDY3ZmYAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaJoEZxmfngwCEPvWBEYdnzgAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpmZDk4NzdjMC00ZDU4LTQ1ZjUtYjY5MS1jNDhjNzcyN2VmZTdscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNot+1inBIQLLsD7VSPj4M45wAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggp6JL1kGkp4MK7eNxbx/KdtnKJ1vUNGBT4O1nUl+ekc+kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaOTNqb12uc1p5+dOHH4nrrUAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIBLl4Iy1VeC2D9IJmuOvwP+pIJCqNHj9A5YPjWN3Nq3CZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GSkmZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmFjYTg1ZWRjLWRkNWUtNDc4NC1hZDcyLTQ0NWE3ZTg0NjdmZi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmQ5NzZiOTNlLWZjZTktNDRjNi04YWZiLTZmZTg5NjU2YmVlMnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCnokvWQaSngwrt43FvH8p22conW9Q0YFPg7WdSX56Rz6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggINNLdg6T86TzMUnAmR/mGQpEkpCrgPDXQXOApg28EfmiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg31TMPS9RoLPRPgitqEbWrBCAqzpo73S//so7bv/W0El0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQAj/ocVELOjuHEkeXE+spwlsDkvENSxIqssbyLts/9NuhGfxCQw1zFhOlG2E0hxhrqdzE1CTSiRjR++dtzoY4QQ=</c2pa:manifest></metadata></svg>
